@@ -1,0 +1,25 @@
+<section id="tasks">
+    @if (!isAddTask) {
+        <header>
+        <h2>{{name}} 's Tasks</h2>
+        <menu>
+        <button (click)="onAddTask()" >Add Task</button>
+    </menu>
+    </header>
+    
+
+    <ul>
+        @for (item of selectedUserTasks; track $index) {
+            <li>
+                <app-tasktest [task]="item" (Complete)="DeleteTask($event)" ></app-tasktest>
+            </li>
+        }
+        
+    </ul>
+    }
+    @else {
+        <app-addtask (Cancel)="onCancelTask()" [Id]="Id" ></app-addtask>        
+    }
+    
+</section>
+
