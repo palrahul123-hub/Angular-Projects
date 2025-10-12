@@ -1,16 +1,28 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from "./header/header.component";
 import { InputComponent } from "./input/input.component";
+import { InvestmentResultComponent } from "./investment-result/investment-result.component";
+import { AngularJSUrlCodec } from '@angular/common/upgrade';
 
 
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, InputComponent],
+  imports: [HeaderComponent, InputComponent, InvestmentResultComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
+  resultsData?:{
+    year: number,
+      interest: number ,
+      valueEndOfYear: number,
+      annualInvestment: number,
+      totalInterest:number,
+      totalAmountInvested: number
+  }[]
+
   title = 'angular-essential-project';
 
   calculateInvestmentResults(investment:{initialInvestment:number,
@@ -37,7 +49,7 @@ export class AppComponent {
 
   }
 
-  return annualData;
+  this.resultsData=annualData;
 }
 
 }
