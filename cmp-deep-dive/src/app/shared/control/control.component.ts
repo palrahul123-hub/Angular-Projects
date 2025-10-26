@@ -1,4 +1,4 @@
-import { Component, input, Input, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, inject, Inject, input, Input, ViewEncapsulation } from '@angular/core';
 
 
 @Component({
@@ -6,9 +6,19 @@ import { Component, input, Input, ViewEncapsulation } from '@angular/core';
   imports: [],
   templateUrl: './control.component.html',
   styleUrl: './control.component.css',
-  encapsulation:ViewEncapsulation.None // These Property is used for apply css on global if there is ng-content projection , becuase ng-content is placeholder because of these css is not applying
+  encapsulation:ViewEncapsulation.None,
+    host:{
+      class:'control',
+      '(click)':'onClick()'
+    }
 })
 export class ControlComponent {
  label=input.required<string>();
+ private el=inject(ElementRef);
+
+ onClick(){
+    console.log('fdsffd')
+    console.log(this.el);
+ }
 
 }

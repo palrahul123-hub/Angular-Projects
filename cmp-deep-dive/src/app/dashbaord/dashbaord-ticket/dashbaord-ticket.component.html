@@ -1,7 +1,20 @@
-  <div id="new-ticket">
-          <app-new-ticket></app-new-ticket>
+<div style="display: flex;gap: 20px;margin-left: -42px;margin-right: -14px;">
+<div>
+        <ul>
+                @for (item of tickets; track item.id) {
+                        <li>
+                                <app-ticket [data]="item" (close)="onClose(item.id)" ></app-ticket>
+                        </li>
+                }
+                @empty {
+                        <p>nothing is there</p>       
+                }
+        </ul>
   </div>
-      
+  <div id="new-ticket">
+          <app-new-ticket (add)="onAdd($event)" ></app-new-ticket>
+  </div>
+  </div>    
 
       
         
