@@ -1,0 +1,14 @@
+<main>
+  <app-learning-resources />
+
+  <hr />
+
+  <app-auth />
+
+  <!-- <p appAuth="admin">These Is Admin</p> -->
+
+  <!-- <ng-template appAuth="admin">
+    <p>These is admin</p>
+  </ng-template> -->
+  <p *appAuth="'admin'">These Is Admin</p>
+</main>
